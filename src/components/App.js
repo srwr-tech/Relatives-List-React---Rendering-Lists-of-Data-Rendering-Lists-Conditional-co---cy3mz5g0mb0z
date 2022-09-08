@@ -1,15 +1,26 @@
-import React, {Component, useState} from "react";
+import React, { Component, useState } from "react";
 import '../styles/App.css';
 
-class App extends Component {
-    render() {
+function App() {
 
-        return(
-            <div id="main">
-               {/* Do not remove the main div */}
-            </div>
-        )
-    }
+    const [list, setList] = useState([
+        'Sample 1',
+        'Sample 2'
+    ]);
+
+    return (
+        <div id="main">
+            {
+                <ol key="relativeList">
+                    {
+                        list.map((item, index) => (
+                            <li key={`relativeListItem${index + 1}`}>{item}</li>
+                        ))
+                    }
+                </ol>
+            }
+        </div>
+    )
 }
 
 
